@@ -1,5 +1,77 @@
 <html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<style>
+		body {
+			margin:0;
+			padding:0;
+		}
+		
+		input {
+			width: 98vw;
+			margin:1vw;
+			margin-top: 1vh;
+			margin-bottom: 1vh;
+			font-size: 3vh;
+			padding:1vh;
+		}
+		</style>			
+	</head>
 	<body>
-		Hello world!
+		<h1>RC Airlines</h1>
+		<input id="inp_username" type="text" />
+		<input id="inp_password" type="password" />
+		<input id="btn_submit" type="button" value="login" />
 	</body>
+	<script>
+		$('#btn_submit').click(function() {
+			console.log('click');
+			loginUser('sylvia.sales','2016aapaapS?','false','new');
+		});
+		function loginUser(sUsername, sPassword, sDebug, sTarget) {
+			console.log('execute function loginUser('+sUsername+', ************, '+sDebug+', '+ sTarget +')');
+			var settings = {
+				"async": true,
+				"crossDomain": true,
+				"url": "https://randomcompany.okta-emea.com/api/v1/authn",
+				"method": "POST",
+				"headers": {
+					"accept": "application/json",
+					"content-type": "application/json",
+					"cache-control": "no-cache"
+				},
+				"processData": false,
+				"data": "{\n  \"username\": \""+ sUsername +"\",\n  \"password\": \""+ sPassword +"\"\n}"
+			}
+			$.ajax(settings)
+				.success(function (response) {
+					var sSessionToken = response.sessionToken;
+					switch(response.status) {
+						case "SUCCESS":
+							console.log('This is a success man!');
+							break;
+						case "MFA_REQUIRED":
+							console.log('This user requires MFA!');
+							break;
+						default:
+							console.log('There is another case happening here!');
+					}				
+			  	})
+				.fail(function () {
+			 		swal("failure", "Your username and/or password are incorrect or your account is disabled or locked", "warning");
+					$( "#inp_username" ).val('');
+					$( "#inp_password" ).val('');
+			 		$("#page_login").show();
+			 		log('Function loginUser result failed');
+			 	})
+			 	.done(function () {
+					$( "#inp_username" ).val('');
+					$( "#inp_password" ).val('');
+			 	
+			 	})
+			  
+		};
+	
+	
+	</script>
 </html>
