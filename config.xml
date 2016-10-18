@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.phonegap.example"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>Okta native app</name>
+
+  <description>
+      A example app for OIDC with Okta as an IDp
+  </description>
+
+  <author href="https://www.okta.com" email="benusfrank@gmail.com">
+      Frank Benus
+  </author>
+
+</widget>
