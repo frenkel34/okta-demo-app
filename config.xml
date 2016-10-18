@@ -6,7 +6,7 @@
     version     = "1.0.0" >
   <name>Okta native app</name>
   <description>
-      A example app for OIDC with Okta as an IDp
+      A example app for OIDC with Okta as an IDp in version 0.2
   </description>
 
 </widget>
