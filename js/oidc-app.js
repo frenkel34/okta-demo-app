@@ -38,6 +38,7 @@ define(["jquery", "okta-auth-sdk", "okta-config"], function($, OktaAuth, OktaCon
 
   $(document).ready(function() {
     $('#btn-idp').click(function() {
+    	alert('start');
       resetDisplay();
       client.idToken.authorize({
         scope: OktaConfig.scope,
@@ -45,11 +46,13 @@ define(["jquery", "okta-auth-sdk", "okta-config"], function($, OktaAuth, OktaCon
         idp: OktaConfig.idp
       })
         .then(function(res) {
+ 			   	alert('then....');
           console.log('id_token: %s', res.idToken);
           displayClaims(res.claims);
           localStorage.setItem('id_token', res.idToken);
         })
         .fail(function(err) {
+		    	alert('fail...');
           console.log(err);
           displayError(err.message);
         })
