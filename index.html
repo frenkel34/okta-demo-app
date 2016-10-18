@@ -3,7 +3,7 @@
   <head>
     <title>OpenID Connect Sample App</title>
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
-		
+
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
       <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
@@ -23,16 +23,10 @@
   <body>
     <div class="container">
      <button id="btn-idp" type="submit" class="button">Sign in with IdP</button>
-     <button id="btn-home" type="submit" class="button">Current url</button>
     </div>
     <div class="container">
       <div id="claims" class="claims"></div>
       <div id="api-resources" class="api-resources"></div>
     </div>
-    <script>
-    	$('#btn-home').click(function() {
-    		alert('redirecting to: '+ window.location.href);
-    	});
-    </script>
   </body>
 </html>
