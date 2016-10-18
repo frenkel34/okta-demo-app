@@ -23,11 +23,17 @@
   <body>
     <div class="container">
      <button id="btn-idp" type="submit" class="button">Sign in with IdP</button>
-     <a href="file://data/user/0/com.phonegap.www/files/downloads/app_dir/index.html">To url</a>
+     <button id="btn-home" type="" class="">Current url</button>
     </div>
     <div class="container">
       <div id="claims" class="claims"></div>
       <div id="api-resources" class="api-resources"></div>
     </div>
+    <script>
+    	$('#btn-home').click(function() {
+    		alert('redirecting to: '+ window.location.href);
+    		window.location.href = window.location.href;
+    	});
+    </script>
   </body>
 </html>
